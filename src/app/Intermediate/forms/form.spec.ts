@@ -12,4 +12,20 @@ describe('Forms test', () => {
         expect( component.form.contains('password') ).toBeTruthy();
     });
     
+    it('should be required email field', () => {
+      
+        const control = component.form.get('email');
+        control?.setValue('');
+
+        expect( control?.valid ).toBeFalsy();
+    });
+    
+    it('should be valid email', () => {
+      
+        const control = component.form.get('email');
+        control?.setValue('test@mail.com');
+
+        expect( control?.valid ).toBeTruthy();
+    });
+    
 });
