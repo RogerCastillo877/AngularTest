@@ -47,7 +47,7 @@ describe('Incremendator Component', () => {
  
     }));
 
-    it('should be increment/decrement 5, when clicked botton', () => {
+    it('should be increment/decrement 5, when clicked button', () => {
       
         const botones = fixture.debugElement.queryAll( By.css('.btn-primary') );
         
@@ -58,5 +58,16 @@ describe('Incremendator Component', () => {
         expect( component.progreso ).toBe(50);
     });
     
+    it('should be displayed in title the progress', () => {
+      
+        const botones = fixture.debugElement.queryAll( By.css('.btn-primary') );
+        botones[0].triggerEventHandler('click', null);
 
+        fixture.detectChanges();
+
+        const elem: HTMLElement = fixture.debugElement.query( By.css('h3') ).nativeElement;
+
+        expect( elem.innerHTML ).toContain('45');
+    });
+    
 });
