@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DoctorService } from './doctor.service';
 
 @Component({
   selector: 'app-doctor',
@@ -8,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorComponent implements OnInit {
 
-  constructor() { }
+  doctors: any[] = [];
+
+  constructor( public _doctorService: DoctorService ) { }
 
   ngOnInit(): void {
   }
 
+  greetDoctor(name: string) {
+    return `Hola ${ name }`;
+  }
+
+  obtenerDoctors() {
+
+    this._doctorService.getDoctors()
+      .subscribe( (doctors: any ) => this.doctors = doctors )
+  }
 }
