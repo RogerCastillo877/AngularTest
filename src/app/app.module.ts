@@ -9,6 +9,10 @@ import { DoctorService } from './intermediate2/doctor/doctor.service';
 import { HospitalComponent } from './intermediate2/hospital/hospital.component';
 import { IncrementadorComponent } from './intermediate2/incrementer/incrementador.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ROUTES } from './advance/routes/app.routes';
+import { NavbarComponent } from './advance/navbar/navbar.component';
+import { RouterDoctorComponent } from './advance/router-doctor/router-doctor.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +20,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MedicosComponent,
     DoctorComponent,
     HospitalComponent,
-    IncrementadorComponent
+    IncrementadorComponent,
+    NavbarComponent,
+    RouterDoctorComponent
   ],
   imports: [
     BrowserModule,
-    CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot( ROUTES )
   ],
   providers: [
     DoctorService,
